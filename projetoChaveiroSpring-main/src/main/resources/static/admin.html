@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro Administrativo de Chaveiros</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="admin">
+<main class="page">
+  <section class="hero">
+    <h1>Cadastro Administrativo de Chaveiros</h1>
+    <p>Cadastre, atualize e mantenha os dados dos chaveiros usados na validação para Pix.</p>
+  </section>
+
+  <nav id="pageNav"></nav>
+
+  <section class="layout">
+    <article class="card">
+      <div class="card-header">
+        <h2>Cadastro administrativo</h2>
+        <p>Use esta area para cadastrar ou atualizar chaveiros no sistema.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="documento">Documento (CPF/CNPJ)</label>
+          <input type="text" id="documento" placeholder="Documento principal para consulta" maxlength="18">
+          <div id="documentoError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Nome do chaveiro ou estabelecimento">
+          <div id="nomeError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" placeholder="Opcional" maxlength="15">
+          <div id="telefoneError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" placeholder="Opcional">
+          <div id="cidadeError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="chavePix">Chave Pix</label>
+          <input type="text" id="chavePix" placeholder="Opcional">
+          <div id="chavePixError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="">Selecione o status</option>
+            <option value="NAO_VERIFICADO">NAO_VERIFICADO</option>
+            <option value="VERIFICADO">VERIFICADO</option>
+            <option value="SUSPEITO">SUSPEITO</option>
+          </select>
+          <div id="statusError" class="error-message"></div>
+        </div>
+        <div class="form-group form-group-full">
+          <label for="observacao">Observação</label>
+          <input type="text" id="observacao" placeholder="Informações adicionais sobre o cadastro">
+          <div id="observacaoError" class="error-message"></div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button class="btn-primary" onclick="incluir()">Incluir</button>
+        <button class="btn-warning" onclick="atualizar()">Alterar</button>
+        <button class="btn-danger" onclick="excluir()">Excluir</button>
+        <button class="btn-secondary" onclick="consultar()">Consultar</button>
+      </div>
+
+      <div id="mensagemAdmin" class="alert alert-info"></div>
+    </article>
+
+    <section id="sharedTableSection"></section>
+  </section>
+</main>
+
+<script src="/script.js"></script>
+</body>
+</html>
