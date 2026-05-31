@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta rapida anti-golpe</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="consulta">
+<main class="page">
+  <section class="hero">
+    <h1>Consulta rapida anti-golpe</h1>
+    <p>Consulte documento ou chave Pix e confira a lista de chaveiros cadastrados antes de contratar ou enviar um pagamento.</p>
+  </section>
+
+  <section id="userBar"></section>
+  <nav id="pageNav"></nav>
+
+  <section class="layout">
+    <article class="card quick-card">
+      <div class="card-header">
+        <h2>Validar profissional</h2>
+        <p>Informe um documento ou uma chave Pix para localizar o cadastro antes de fechar o servico.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="consultaDocumento">Documento (CPF/CNPJ)</label>
+          <input type="text" id="consultaDocumento" placeholder="Digite o CPF ou CNPJ" maxlength="18">
+          <div id="consultaDocumentoError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="consultaChavePix">Chave Pix</label>
+          <input type="text" id="consultaChavePix" placeholder="Digite a chave Pix para consulta">
+          <div id="consultaChavePixError" class="error-message"></div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button class="btn-primary" onclick="verificarChaveiro()">Verificar chaveiro</button>
+      </div>
+
+      <div id="mensagemConsulta" class="alert alert-info"></div>
+      <div class="tip">Dica: confirme nome, cidade, tipos de trabalho e chave Pix antes de concluir o pagamento.</div>
+    </article>
+
+    <article id="resultadoConsultaCard" class="card result-card is-hidden">
+      <div class="card-header">
+        <h2>Dados do profissional consultado</h2>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="resultadoDocumento">Documento (CPF/CNPJ)</label>
+          <input type="text" id="resultadoDocumento" class="read-only-field" readonly>
+        </div>
+        <div class="form-group">
+          <label for="resultadoNome">Nome</label>
+          <input type="text" id="resultadoNome" class="read-only-field" readonly>
+        </div>
+        <div class="form-group">
+          <label for="resultadoTelefone">Telefone</label>
+          <input type="text" id="resultadoTelefone" class="read-only-field" readonly>
+        </div>
+        <div class="form-group">
+          <label for="resultadoCidade">Cidade</label>
+          <input type="text" id="resultadoCidade" class="read-only-field" readonly>
+        </div>
+        <div class="form-group">
+          <label for="resultadoChavePix">Chave Pix</label>
+          <input type="text" id="resultadoChavePix" class="read-only-field" readonly>
+        </div>
+        <div class="form-group">
+          <label for="resultadoStatus">Status</label>
+          <input type="text" id="resultadoStatus" class="read-only-field" readonly>
+        </div>
+        <div class="form-group form-group-full">
+          <label for="resultadoTiposTrabalho">Tipos de trabalho</label>
+          <input type="text" id="resultadoTiposTrabalho" class="read-only-field" readonly>
+        </div>
+        <div class="form-group form-group-full">
+          <label for="resultadoObservacao">Observacao</label>
+          <input type="text" id="resultadoObservacao" class="read-only-field" readonly>
+        </div>
+      </div>
+    </article>
+
+    <section id="sharedTableSection"></section>
+  </section>
+</main>
+
+<script src="/script.js"></script>
+</body>
+</html>

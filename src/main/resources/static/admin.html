@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro administrativo de chaveiros</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="admin">
+<main class="page">
+  <section class="hero">
+    <h1>Cadastro administrativo de chaveiros</h1>
+    <p>Area exclusiva para usuario empresa cadastrar, atualizar e manter os profissionais da plataforma.</p>
+  </section>
+
+  <section id="userBar"></section>
+  <nav id="pageNav"></nav>
+
+  <section class="layout">
+    <article class="card">
+      <div class="card-header">
+        <h2>Cadastro administrativo</h2>
+        <p>Os dados da empresa responsavel sao preenchidos automaticamente. Complete os demais campos e selecione 1 tipo de trabalho.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="documento">Documento (CPF/CNPJ)</label>
+          <input type="text" id="documento" class="read-only-field" readonly maxlength="18">
+          <div id="documentoError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" class="read-only-field" readonly>
+          <div id="nomeError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" placeholder="Opcional" maxlength="15">
+          <div id="telefoneError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" placeholder="Opcional">
+          <div id="cidadeError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="chavePix">Chave Pix</label>
+          <input type="text" id="chavePix" placeholder="Opcional">
+          <div id="chavePixError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="">Selecione o status</option>
+            <option value="NAO_VERIFICADO">NAO_VERIFICADO</option>
+            <option value="VERIFICADO">VERIFICADO</option>
+            <option value="SUSPEITO">SUSPEITO</option>
+          </select>
+          <div id="statusError" class="error-message"></div>
+        </div>
+        <div class="form-group form-group-full">
+          <label>Tipo Trabalho</label>
+          <div class="multi-select-note">Selecione somente 1 opcao.</div>
+          <div id="tiposTrabalhoOptions" class="checkbox-grid"></div>
+          <div id="tiposTrabalhoError" class="error-message"></div>
+        </div>
+        <div class="form-group form-group-full">
+          <label for="observacao">Observacao</label>
+          <input type="text" id="observacao" placeholder="Informacoes adicionais sobre o cadastro">
+          <div id="observacaoError" class="error-message"></div>
+        </div>
+      </div>
+
+      <div id="defaultAdminActions" class="button-row">
+        <button class="btn-primary" onclick="incluir()">Incluir</button>
+        <button class="btn-warning" onclick="abrirSeletorCadastro('alterar')">Alterar</button>
+        <button class="btn-danger" onclick="abrirSeletorCadastro('excluir')">Excluir</button>
+      </div>
+
+      <div id="editAdminActions" class="button-row is-hidden">
+        <button class="btn-warning" onclick="salvarAlteracaoSelecionada()">Salvar alteracao</button>
+        <button class="btn-secondary" onclick="cancelarFluxoAdmin()">Cancelar</button>
+      </div>
+
+      <div id="deleteAdminActions" class="button-row is-hidden">
+        <button class="btn-danger" onclick="concluirExclusaoSelecionada()">Concluir exclusao</button>
+        <button class="btn-secondary" onclick="cancelarFluxoAdmin()">Cancelar</button>
+      </div>
+
+      <div id="mensagemAdmin" class="alert alert-info"></div>
+    </article>
+
+    <section id="sharedTableSection"></section>
+  </section>
+</main>
+
+<div id="cadastroPickerModal" class="modal-backdrop is-hidden">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <h3 id="cadastroPickerTitle">Escolher cadastro</h3>
+        <p id="cadastroPickerSubtitle">Selecione um cadastro da sua empresa.</p>
+      </div>
+      <button type="button" class="modal-close-btn" onclick="fecharSeletorCadastro()">Fechar</button>
+    </div>
+    <div id="cadastroPickerList" class="modal-list"></div>
+  </div>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>

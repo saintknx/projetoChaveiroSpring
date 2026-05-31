@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login e cadastro | Projeto Chaveiro</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="login">
+<main class="page">
+  <section class="hero">
+    <h1>Projeto Chaveiro</h1>
+    <p>Entre na plataforma para consultar profissionais, validar dados e, no perfil empresa, administrar novos cadastros.</p>
+  </section>
+
+  <section class="auth-container">
+    <article class="card auth-card auth-card-single">
+      <section id="loginPanel" class="auth-panel">
+        <div class="card-header">
+          <h2>Entrar</h2>
+          <p>Use o email e a senha cadastrados para acessar sua area.</p>
+        </div>
+
+        <div class="form-grid auth-form-grid">
+          <div class="form-group form-group-full">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="voce@exemplo.com">
+            <div id="loginEmailError" class="error-message"></div>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="loginSenha">Senha</label>
+            <input type="password" id="loginSenha" placeholder="Digite sua senha">
+            <div id="loginSenhaError" class="error-message"></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button class="btn-primary" onclick="login()">Entrar</button>
+        </div>
+
+        <div class="auth-panel-footer">
+          <span>Ainda nao tem conta?</span>
+          <button type="button" class="auth-link-btn" onclick="alternarModoAuth('register')">Criar conta</button>
+        </div>
+
+        <div id="mensagemLogin" class="alert alert-info"></div>
+      </section>
+
+      <section id="registerPanel" class="auth-panel is-hidden">
+        <div class="card-header">
+          <h2>Criar conta</h2>
+          <p>Escolha o perfil e preencha os dados para acessar a plataforma.</p>
+        </div>
+
+        <div class="role-switch" id="registerRoleSwitch">
+          <button type="button" class="role-switch-btn role-switch-btn-active" data-role-option="COMUM">Usuario comum</button>
+          <button type="button" class="role-switch-btn" data-role-option="EMPRESA">Usuario empresa</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="registerNome">Nome</label>
+            <input type="text" id="registerNome" placeholder="Nome completo">
+            <div id="registerNomeError" class="error-message"></div>
+          </div>
+          <div class="form-group">
+            <label for="registerTelefone">Telefone</label>
+            <input type="text" id="registerTelefone" placeholder="(00) 00000-0000" maxlength="15">
+            <div id="registerTelefoneError" class="error-message"></div>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" placeholder="voce@exemplo.com">
+            <div id="registerEmailError" class="error-message"></div>
+          </div>
+          <div class="form-group">
+            <label for="registerSenha">Senha</label>
+            <input type="password" id="registerSenha" placeholder="Minimo de 6 caracteres">
+            <div id="registerSenhaError" class="error-message"></div>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="registerConfirmarSenha">Confirmar senha</label>
+            <input type="password" id="registerConfirmarSenha" placeholder="Repita a senha">
+            <div id="registerConfirmarSenhaError" class="error-message"></div>
+          </div>
+          <div class="form-group form-group-full is-hidden" id="registerCnpjGroup">
+            <label for="registerCnpj">CNPJ</label>
+            <input type="text" id="registerCnpj" placeholder="00.000.000/0000-00" maxlength="18">
+            <div id="registerCnpjError" class="error-message"></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button class="btn-primary" onclick="registrar()">Criar conta</button>
+        </div>
+
+        <div class="auth-panel-footer">
+          <span>Ja tem conta?</span>
+          <button type="button" class="auth-link-btn" onclick="alternarModoAuth('login')">Entrar</button>
+        </div>
+
+        <div id="mensagemRegister" class="alert alert-info"></div>
+      </section>
+    </article>
+  </section>
+</main>
+
+<script src="/script.js"></script>
+</body>
+</html>
